@@ -1,223 +1,227 @@
-<html><head><base href="CURRENT_DIRECTORY">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ariel Tech Vision</title>
-<style>
-:root {
-  --neon-blue: #00f3ff;
-  --neon-purple: #ff00ff;
-  --neon-red: #ff0000;
-  --neon-green: #00ff00;
-}
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariel Tech Vision</title>
+  <style>
+    :root {
+      --casas-bahia-blue: #004691;
+      --casas-bahia-red: #e60014;
+      --neon-glow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+    }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  color: white;
-  font-family: 'Arial', sans-serif;
-  overflow-x: hidden;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #001;
+      color: white;
+      font-family: 'Arial', sans-serif;
+    }
 
-.container {
-  max-width: 100%;
-  padding: 20px;
-}
+    .neon-header {
+      text-align: center;
+      padding: 20px;
+      background: var(--casas-bahia-blue);
+      animation: neonPulse 1.5s infinite;
+    }
 
-.title {
-  font-size: 2.5em;
-  text-align: center;
-  margin: 20px 0;
-  font-family: 'Arial', sans-serif;
-  color: var(--neon-blue);
-  text-shadow: 
-    0 0 5px var(--neon-blue),
-    0 0 10px var(--neon-blue),
-    0 0 20px var(--neon-blue);
-  animation: titleGlow 2s infinite alternate;
-}
+    .neon-subtitle {
+      font-size: 1.2em;
+      color: #fff;
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+      animation: neonFlicker 2s infinite;
+    }
 
-@keyframes titleGlow {
-  from { text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue); }
-  to { text-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple); }
-}
+    .neon-discount {
+      font-size: 1.5em;
+      color: #fff;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+      animation: neonPulse 2s infinite;
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      background: rgba(255,0,255,0.1);
+      border-radius: 10px;
+    }
 
-.christmas-banner {
-  background: linear-gradient(45deg, #ff0000, #00ff00);
-  padding: 15px;
-  text-align: center;
-  margin: 20px auto;
-  border-radius: 10px;
-  color: white;
-  font-weight: bold;
-  animation: christmasGlow 2s infinite alternate;
-}
+    @keyframes neonPulse {
+      0%, 100% { text-shadow: var(--neon-glow); }
+      50% { text-shadow: none; }
+    }
 
-@keyframes christmasGlow {
-  from { box-shadow: 0 0 10px var(--neon-red); }
-  to { box-shadow: 0 0 20px var(--neon-green); }
-}
+    @keyframes neonFlicker {
+      0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: .99;
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+      }
+      20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.4;
+        text-shadow: none;
+      }
+    }
 
-.black-friday-banner {
-  width: 100%;
-  max-width: 600px;
-  margin: 20px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 20px var(--neon-blue);
-  animation: glow 1.5s infinite alternate;
-  display: block;
-}
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      margin: 15px;
+      padding: 15px;
+      color: black;
+      box-shadow: 0 0 15px rgba(0,0,255,0.3);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.5s ease-out;
+    }
 
-@keyframes glow {
-  from { box-shadow: 0 0 20px var(--neon-blue); }
-  to { box-shadow: 0 0 30px var(--neon-purple); }
-}
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
 
-.button {
-  display: block;
-  width: 80%;
-  max-width: 300px;
-  margin: 20px auto;
-  padding: 15px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.2em;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.3s ease;
-}
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-.whatsapp-btn {
-  background: linear-gradient(45deg, #25d366, #128C7E);
-  color: white;
-  animation: neonPulse 1.5s infinite;
-}
+    .price {
+      color: var(--casas-bahia-red);
+      font-size: 1.2em;
+      font-weight: bold;
+    }
 
-.mercadolivre-btn {
-  background: linear-gradient(45deg, #FFE600, #FFB100);
-  color: black;
-  animation: neonPulse 1.5s infinite;
-}
+    .discount {
+      background: #ff0;
+      color: black;
+      padding: 5px;
+      border-radius: 5px;
+      display: inline-block;
+    }
 
-@keyframes neonPulse {
-  0% { transform: scale(1); box-shadow: 0 0 10px currentColor; }
-  50% { transform: scale(1.05); box-shadow: 0 0 20px currentColor; }
-  100% { transform: scale(1); box-shadow: 0 0 10px currentColor; }
-}
+    .whatsapp-button {
+      background: #25d366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 20px;
+      animation: bounce 1s infinite;
+    }
 
-.feedback-container {
-  background: rgba(255,255,255,0.1);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-}
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
-.security-info {
-  background: linear-gradient(45deg, #001f3f, #000);
-  border: 2px solid var(--neon-blue);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  animation: borderGlow 2s infinite alternate;
-}
+    .feedback-section {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      margin: 15px;
+      border-radius: 15px;
+    }
 
-@keyframes borderGlow {
-  from { border-color: var(--neon-blue); }
-  to { border-color: var(--neon-purple); }
-}
+    .secure-buy {
+      background: var(--casas-bahia-blue);
+      padding: 20px;
+      text-align: center;
+      margin: 15px;
+      border-radius: 15px;
+    }
 
-.touch-feedback {
-  position: absolute;
-  pointer-events: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-  transform: translate(-50%, -50%);
-  animation: touchFade 0.5s forwards;
-}
+    .mercadolivre-button {
+      background: #fff159;
+      color: black;
+      padding: 15px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 20px;
+      transition: transform 0.3s ease;
+    }
 
-@keyframes touchFade {
-  from { opacity: 1; transform: translate(-50%, -50%) scale(0); }
-  to { opacity: 0; transform: translate(-50%, -50%) scale(2); }
-}
-</style>
+    .mercadolivre-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <h1 class="title">Ariel Tech Vision</h1>
-  
-  <div class="christmas-banner">
-    🎄 Feliz Natal! Aproveite nossas ofertas especiais! 🎅
-  </div>
-  
-  <img src="BlackFriday.jpg" alt="Black Friday banner" class="black-friday-banner">
-  
-  <div class="security-info">
-    <h2>🔒 Compra 100% Segura</h2>
-    <p>Na Ariel Tech, sua segurança é nossa prioridade. Todas as transações são protegidas e garantimos sua satisfação!</p>
+<header class="neon-header">
+  <h1>Ariel Tech Vision</h1>
+  <p class="neon-subtitle">Venha conferir todos os nossos produtos! Mais de 200 itens com ótimos preços!</p>
+</header>
+
+<div class="neon-discount">
+  🌟 10% DE DESCONTO COMPRANDO DIRETO COM A LOJA! 🌟
+</div>
+
+<main>
+  <div class="product-card">
+    <img src="foto5.jpg" alt="Notebook com Windows 11, mostrando a tela inicial do sistema" class="product-image">
+    <h2>Notebook Windows 11</h2>
+    <p class="price"><s>R$ 189,00</s></p>
+    <p class="discount">10% OFF - R$ 170,10</p>
   </div>
 
-  <div class="feedback-container">
-    <h2>⭐ Clientes Satisfeitos</h2>
+  <div class="product-card">
+    <img src="foto2.jpg" alt="Smartphone Motorola Moto G54 5G com frente e traseira visíveis" class="product-image">
+    <h2>Motorola Moto G54 5G</h2>
+    <p class="price"><s>R$ 1.335,00</s></p>
+    <p class="discount">10% OFF - R$ 1.201,50</p>
+  </div>
+
+  <div class="product-card">
+    <img src="foto3.jpg" alt="Câmera Positivo Smart Bot 360° com embalagem" class="product-image">
+    <h2>Câmera Positivo Smart Bot</h2>
+    <p class="price"><s>R$ 299,00</s></p>
+    <p class="discount">10% OFF - R$ 269,10</p>
+  </div>
+
+  <div class="feedback-section">
+    <h2>Feedbacks dos nossos clientes</h2>
     <div class="feedback">
-      <p>"Excelente atendimento e produtos de qualidade! Super recomendo!" - Maria S.</p>
-      <p>"Entrega rápida e preços competitivos. Voltarei sempre!" - João P.</p>
-      <p>"Os melhores preços em eletrônicos que já encontrei!" - Ana R.</p>
+      <p>⭐⭐⭐⭐⭐ "Excelente atendimento e produtos de qualidade!" - Maria Silva</p>
+      <p>⭐⭐⭐⭐⭐ "Entrega super rápida e produtos originais!" - João Santos</p>
+      <p>⭐⭐⭐⭐⭐ "Melhor loja de eletrônicos da região!" - Ana Oliveira</p>
     </div>
   </div>
 
-  <a href="https://wa.me/5511966252450" class="button whatsapp-btn">
-    💬 Falar com um Vendedor
-  </a>
+  <div class="secure-buy">
+    <h2>🔒 Compra 100% Segura</h2>
+    <p>Somos referência em vendas no Mercado Livre com mais de 1000 avaliações positivas!</p>
+    <a href="https://lista.mercadolivre.com.br/pagina/arieltechvison/_NoIndex_True" class="mercadolivre-button">
+                     Clique aqui Para ver nossas
+      Referência de vendas na Loja no Mercado Livre
+    </a>
+    <p>Comprando direto conosco, ganhe 10% de desconto em todos os produtos!</p>
+    <p>Entregas rápidas para todo o Brasil!</p>
+  </div>
 
-  <a href="https://lista.mercadolivre.com.br/_CustId_140342970" class="button mercadolivre-btn">
-    🛍️ Nossa Loja no Mercado Livre
-  </a>
-</div>
+  <div style="text-align: center;">
+    <a href="https://wa.me/5513974173380" class="whatsapp-button">
+      💬 Fale conosco no WhatsApp
+    </a>
+  </div>
+</main>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Touch effect
-  document.body.addEventListener('touchstart', function(e) {
-    const touch = e.touches[0];
-    const ripple = document.createElement('div');
-    ripple.className = 'touch-feedback';
-    ripple.style.left = touch.clientX + 'px';
-    ripple.style.top = touch.clientY + 'px';
-    document.body.appendChild(ripple);
-    
-    setTimeout(() => {
-      ripple.remove();
-    }, 500);
-  });
-
-  // Button hover effects
-  const buttons = document.querySelectorAll('.button');
-  buttons.forEach(button => {
-    button.addEventListener('mouseover', function() {
-      this.style.transform = 'scale(1.1)';
-    });
-    button.addEventListener('mouseout', function() {
-      this.style.transform = 'scale(1)';
+  // Animação suave ao rolar
+  const products = document.querySelectorAll('.product-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
     });
   });
 
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
+  products.forEach(product => {
+    observer.observe(product);
   });
 });
 </script>
 
-</body></html>
+</body>
+</html>
