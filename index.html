@@ -71,6 +71,10 @@
       opacity: 0;
       transform: translateY(50px);
       transition: all 0.5s ease-out;
+      width: 100%;
+      max-width: 300px; /* Limita a largura da imagem */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .product-card:hover {
@@ -142,6 +146,49 @@
     .mercadolivre-button:hover {
       transform: scale(1.05);
     }
+
+    /* Media queries para dispositivos móveis */
+    @media (max-width: 768px) {
+      .neon-header h1 {
+        font-size: 1.8em;
+      }
+
+      .neon-subtitle {
+        font-size: 1em;
+      }
+
+      .neon-discount {
+        font-size: 1.2em;
+      }
+
+      .product-card {
+        width: 90%;
+        max-width: none;
+        margin: 10px 0;
+      }
+
+      .whatsapp-button {
+        width: 90%;
+        padding: 12px 20px;
+      }
+
+      .mercadolivre-button {
+        width: 90%;
+        padding: 12px 20px;
+      }
+
+      .secure-buy p {
+        font-size: 1em;
+      }
+    }
+
+    /* Media queries para telas grandes (desktops) */
+    @media (min-width: 769px) {
+      .product-card {
+        width: 30%;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -152,15 +199,15 @@
 </header>
 
 <div class="neon-discount">
-  🌟 10% DE DESCONTO COMPRANDO DIRETO COM A LOJA! 🌟
+  🌟ESCOLHA NA NOSSA LOJA DO MERCADO LIVRE E GANHE  10% DE DESCONTO COMPRANDO DIRETO COM A LOJA! 🌟
 </div>
 
 <main>
   <div class="product-card">
-    <img src="foto5.jpg" alt="Notebook com Windows 11, mostrando a tela inicial do sistema" class="product-image">
+    <img src="foto5.jpg" alt="Notebook Acer A514-54-385s I3 4gb 256gb Ssd 14'' W11" class="product-image">
     <h2>Notebook Windows 11</h2>
-    <p class="price"><s>R$ 189,00</s></p>
-    <p class="discount">10% OFF - R$ 170,10</p>
+    <p class="price"><s>R$ 3.150,00</s></p>
+    <p class="discount">11% OFF - R$ 2803,50</p>
   </div>
 
   <div class="product-card">
@@ -190,8 +237,7 @@
     <h2>🔒 Compra 100% Segura</h2>
     <p>Somos referência em vendas no Mercado Livre com mais de 1000 avaliações positivas!</p>
     <a href="https://lista.mercadolivre.com.br/pagina/arieltechvison/_NoIndex_True" class="mercadolivre-button">
-                     Clique aqui Para ver nossas
-      Referência de vendas na Loja no Mercado Livre
+      Clique aqui Para ver nossas Referência de vendas na Loja no Mercado Livre
     </a>
     <p>Comprando direto conosco, ganhe 10% de desconto em todos os produtos!</p>
     <p>Entregas rápidas para todo o Brasil!</p>
