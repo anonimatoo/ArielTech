@@ -1,7 +1,7 @@
 <html><head><base href="." /><title>Ariel Tech Vision</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 :root {
-  --casas-bahia-blue: #0060AA;
+  --casas-bahia-blue: #0060AA;  
   --casas-bahia-red: #E60014;
   --neon-blue: #00f3ff;
   --neon-pink: #ff00ff;
@@ -102,7 +102,6 @@ body {
   display: block;
   transition: transform 0.3s;
   text-decoration: none;
-  animation: buttonPulse 2s infinite;
 }
 
 @keyframes neonPulse {
@@ -134,16 +133,6 @@ body {
   border-radius: 10px;
   border: 1px solid var(--neon-blue);
 }
-
-@media (max-width: 768px) {
-  .logo {
-    font-size: 2em;
-  }
-  
-  .highlight {
-    font-size: 1.2em;
-  }
-}
 </style>
 </head>
 <body>
@@ -174,6 +163,20 @@ body {
     <p class="original-price">Preço Original: R$ 399,00</p>
     <p class="discount-badge">11% OFF - R$ 355,11</p>
   </div>
+
+  <div class="product-card">
+    <img class="product-image" src="foto6.jpg" alt="PlayStation 5 console em branco e preto com acessórios" width="300" height="200">
+    <h3>Sony Playstation 5 Mídia Física 825gb - Mostruário</h3>
+    <p class="original-price">Preço Original: R$ 5.629,00</p>
+    <p class="discount-badge">11% OFF - R$ 5.009,81</p>
+  </div>
+
+  <div class="product-card">
+    <img class="product-image" src="foto8.jpg" alt="Impressora 3D Creality Sermoon D1 com design transparente" width="300" height="200">
+    <h3>Impressora 3D Creality Sermoon D1</h3>
+    <p class="original-price">Preço Original: R$ 4.741,50</p>
+    <p class="discount-badge">11% OFF - R$ 4.219,94</p>
+  </div>
 </div>
 
 <div class="highlight" style="text-align: center;">
@@ -199,7 +202,7 @@ body {
   <h3>Compra 100% Segura</h3>
   <p>Somos referência no Mercado Livre com mais de 1000 vendas realizadas</p>
   <p>Entrega rápida para todo o Brasil</p>
-  <p>10% de desconto em compras diretas com nossa loja</p>
+  <p>11% de desconto em compras diretas com nossa loja</p>
 </div>
 
 <script>
@@ -209,16 +212,6 @@ document.querySelectorAll('.product-card').forEach(card => {
   });
   
   card.addEventListener('touchend', function() {
-    this.style.transform = 'scale(1)';
-  });
-});
-
-document.querySelectorAll('.whatsapp-button, .ml-button').forEach(button => {
-  button.addEventListener('touchstart', function() {
-    this.style.transform = 'scale(0.95)';
-  });
-  
-  button.addEventListener('touchend', function() {
     this.style.transform = 'scale(1)';
   });
 });
