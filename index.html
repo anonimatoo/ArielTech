@@ -1,219 +1,62 @@
-<html><head><base href="." /><title>Ariel Tech Vision</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-:root {
-  --casas-bahia-blue: #0060AA;  
-  --casas-bahia-red: #E60014;
-  --neon-blue: #00f3ff;
-  --neon-pink: #ff00ff;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  font-family: 'Arial', sans-serif;
-  color: white;
-}
-
-.header {
-  background: var(--casas-bahia-blue);
-  padding: 20px;
-  text-align: center;
-  animation: neonPulse 2s infinite;
-}
-
-.logo {
-  font-size: 3em;
-  text-shadow: 0 0 10px var(--neon-blue),
-               0 0 20px var(--neon-blue),
-               0 0 30px var(--neon-blue);
-  animation: logoGlow 1.5s infinite alternate;
-}
-
-.highlight {
-  font-size: 1.5em;
-  color: #fff;
-  text-shadow: 0 0 10px var(--neon-pink),
-               0 0 20px var(--neon-pink);
-  margin: 20px 0;
-  animation: highlightPulse 2s infinite;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px;
-}
-
-.product-card {
-  background: rgba(0,0,0,0.8);
-  border: 2px solid var(--neon-blue);
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--neon-blue);
-}
-
-.product-image {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border-radius: 5px;
-}
-
-.discount-badge {
-  background: var(--casas-bahia-red);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  animation: discountPulse 1s infinite;
-}
-
-.whatsapp-button {
-  background: #25D366;
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.2em;
-  cursor: pointer;
-  margin: 20px auto;
-  display: block;
-  transition: transform 0.3s;
-  animation: buttonPulse 2s infinite;
-  text-decoration: none;
-}
-
-.ml-button {
-  background: #FFE600;
-  color: black;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.2em;
-  cursor: pointer;
-  margin: 20px auto;
-  display: block;
-  transition: transform 0.3s;
-  text-decoration: none;
-}
-
-@keyframes neonPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes logoGlow {
-  from { text-shadow: 0 0 10px var(--neon-blue); }
-  to { text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue); }
-}
-
-@keyframes buttonPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-@keyframes discountPulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.7; }
-  100% { opacity: 1; }
-}
-
-.feedback-section {
-  background: rgba(0,0,0,0.8);
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-  border: 1px solid var(--neon-blue);
-}
-</style>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Imobiliário - Agência da Praia Imóveis</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
+  <script src="script.js" defer></script>
 </head>
-<body>
+<body class="bg-dark-blue">
+  <header>
+    <img src="logo.jpg" alt="Agência da Praia Imóveis Logo" class="logo">
+    <div class="header-text">
+      <h1>Amanda Kaiuby</h1>
+      <h2>Agência da Praia Grande</h2>
+      <p>Corretora de Imóveis - Creci 285515-F</p>
+    </div>
+  </header>
 
-<div class="header">
-  <div class="logo">Ariel Tech Vision</div>
-  <div class="highlight">Venha conferir todos os nossos produtos! Temos mais de centenas de itens com ótimos preços. Escolha qualquer produto em nossa loja no Mercado Livre e aproveite 11% de desconto comprando diretamente pelo WhatsApp!</div>
-</div>
+  <main>
+    <form id="formularioImobiliario">
+      <section class="form-section">
+        <h2>FORMULÁRIO LOCAÇÃO PESSOA FÍSICA</h2>
+        <div class="form-group">
+          <label for="rgCpf">RG e CPF (se casado, do casal) cópias digitalizadas, documento aberto frente e verso na mesma foto:</label>
+          <input type="file" id="rgCpf" name="rgCpf" accept="image/*" multiple>
+        </div>
+        <div class="form-group">
+          <label for="certidaoCasamento">Certidão de casamento (óbito, divórcio quando for o caso):</label>
+          <input type="file" id="certidaoCasamento" name="certidaoCasamento" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="comprovantesRenda">3 últimos comprovantes de rendimento (que somados sejam superior a 03 vezes o valor do aluguel):</label>
+          <input type="file" id="comprovantesRenda" name="comprovantesRenda" accept="image/*" multiple>
+        </div>
+        <div class="form-group">
+          <label for="comprovanteResidencia">Comprovante de residência (Luz, Água ou telefone):</label>
+          <input type="file" id="comprovanteResidencia" name="comprovanteResidencia" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="declaracaoIR">Declaração de Imposto de Renda completa:</label>
+          <input type="file" id="declaracaoIR" name="declaracaoIR" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="recibosAluguel">Os três últimos recibos de pagamento, se estiver pagando aluguel:</label>
+          <input type="file" id="recibosAluguel" name="recibosAluguel" accept="image/*" multiple>
+        </div>
+        <div class="form-group">
+          <label for="fichaCadastral">Ficha cadastral preenchida e assinada:</label>
+          <input type="file" id="fichaCadastral" name="fichaCadastral" accept="image/*">
+        </div>
+      </section>
 
-<div class="product-grid">
-  <div class="product-card">
-    <img class="product-image" src="foto5.jpg" alt="Notebook Acer A514-54-385s com tela mostrando Windows 11" width="300" height="200">
-    <h3>Notebook Acer A514-54-385s I3 4gb 256gb Ssd 14'' W11</h3>
-    <p class="original-price">Preço Original: R$ 3.150,00</p>
-    <p class="discount-badge">11% OFF - R$ 2.803,50</p>
-  </div>
+      <button type="submit" class="submit-button">Enviar Documentos</button>
+    </form>
+  </main>
 
-  <div class="product-card">
-    <img class="product-image" src="foto2.jpg" alt="Smartphone Motorola Moto G54 5G em azul" width="300" height="200">
-    <h3>Smartphone Motorola Moto G54 5G 256GB Azul 8GB RAM</h3>
-    <p class="original-price">Preço Original: R$ 1.335,00</p>
-    <p class="discount-badge">10% OFF - R$ 1.201,50</p>
-  </div>
-
-  <div class="product-card">
-    <img class="product-image" src="foto3.jpg" alt="Câmera de segurança Positivo Smart Bot" width="300" height="200">
-    <h3>Câmera de Vídeo Segurança Positivo Smart Bot Wi-Fi 360°</h3>
-    <p class="original-price">Preço Original: R$ 399,00</p>
-    <p class="discount-badge">11% OFF - R$ 355,11</p>
-  </div>
-
-  <div class="product-card">
-    <img class="product-image" src="foto6.jpg" alt="PlayStation 5 console em branco e preto com acessórios" width="300" height="200">
-    <h3>Sony Playstation 5 Mídia Física 825gb - Mostruário</h3>
-    <p class="original-price">Preço Original: R$ 5.629,00</p>
-    <p class="discount-badge">11% OFF - R$ 5.009,81</p>
-  </div>
-
-  <div class="product-card">
-    <img class="product-image" src="foto8.jpg" alt="Impressora 3D Creality Sermoon D1 com design transparente" width="300" height="200">
-    <h3>Impressora 3D Creality Sermoon D1</h3>
-    <p class="original-price">Preço Original: R$ 4.741,50</p>
-    <p class="discount-badge">11% OFF - R$ 4.219,94</p>
-  </div>
-</div>
-
-<div class="highlight" style="text-align: center;">
-  11% de desconto comprando direto com a loja!
-</div>
-
-<a href="https://wa.me/5511966252450" class="whatsapp-button">
-  Comprar pelo WhatsApp
-</a>
-
-<a href="https://lista.mercadolivre.com.br/pagina/arieltechvison/_NoIndex_True" class="ml-button">
-  Ver nossa loja no Mercado Livre
-</a>
-
-<div class="feedback-section">
-  <h2>Feedbacks Positivos</h2>
-  <p>⭐⭐⭐⭐⭐ "Ótimo atendimento e entrega rápida!" - Maria S.</p>
-  <p>⭐⭐⭐⭐⭐ "Produtos originais e preços justos" - João P.</p>
-  <p>⭐⭐⭐⭐⭐ "Super recomendo! Loja confiável" - Ana C.</p>
-</div>
-
-<div style="text-align: center; padding: 20px; margin-top: 20px;">
-  <h3>Compra 100% Segura</h3>
-  <p>Somos referência no Mercado Livre com mais de 1000 vendas realizadas</p>
-  <p>Entrega rápida para todo o Brasil</p>
-  <p>11% de desconto em compras diretas com nossa loja</p>
-</div>
-
-<script>
-document.querySelectorAll('.product-card').forEach(card => {
-  card.addEventListener('touchstart', function() {
-    this.style.transform = 'scale(0.95)';
-  });
-  
-  card.addEventListener('touchend', function() {
-    this.style.transform = 'scale(1)';
-  });
-});
-</script>
-</body></html>
+  <footer>
+    <p>© Site seguro</p>
+  </footer>
+</body>
+</html>
