@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -5,7 +6,56 @@
   <title>Formulário Imobiliário - Agência da Praia Imóveis</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap">
-  <script src="script.js" defer></script>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+      const formulario = document.getElementById("formularioImobiliario");
+
+      formulario.addEventListener("submit", function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        const numeroWhatsApp = "5511999999999"; // Substitua pelo número correto
+        let mensagem = "📎 Documentos enviados para análise:\n";
+
+        const inputs = document.querySelectorAll("input[type='file']");
+        let arquivosValidos = [];
+
+        inputs.forEach(input => {
+          if (input.files.length > 0) {
+            for (let file of input.files) {
+              const extensao = file.name.split('.').pop().toLowerCase();
+              
+              if (["jpg", "jpeg", "pdf"].includes(extensao)) {
+                const urlArquivo = URL.createObjectURL(file);
+                arquivosValidos.push(urlArquivo);
+                mensagem += `📄 ${input.previousElementSibling.innerText.trim()}\n`;
+              } else {
+                alert(`O arquivo "${file.name}" não é permitido! Apenas JPG e PDF.`);
+                return;
+              }
+            }
+          }
+        });
+
+        if (arquivosValidos.length === 0) {
+          alert("Nenhum arquivo válido foi selecionado!");
+          return;
+        }
+
+        // Criando um link do WhatsApp
+        const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+
+        // Abre o WhatsApp em uma nova aba
+        window.open(linkWhatsApp, "_blank");
+
+        // Exibe os arquivos enviados
+        setTimeout(() => {
+          arquivosValidos.forEach(arquivo => {
+            window.open(arquivo, "_blank");
+          });
+        }, 2000);
+      });
+    });
+  </script>
 </head>
 <body class="bg-dark-blue">
   <header>
@@ -21,42 +71,49 @@
     <form id="formularioImobiliario">
       <section class="form-section">
         <h2>FORMULÁRIO LOCAÇÃO PESSOA FÍSICA</h2>
+        
         <div class="form-group">
-          <label for="rgCpf">RG e CPF (se casado, do casal) cópias digitalizadas, documento aberto frente e verso na mesma foto:</label>
-          <input type="file" id="rgCpf" name="rgCpf" accept="image/*" multiple>
+          <label for="rgCpf">RG e CPF (se casado, do casal) cópias digitalizadas:</label>
+          <input type="file" id="rgCpf" name="rgCpf" accept=".jpg, .jpeg, .pdf" multiple>
         </div>
+
         <div class="form-group">
           <label for="certidaoCasamento">Certidão de casamento (óbito, divórcio quando for o caso):</label>
-          <input type="file" id="certidaoCasamento" name="certidaoCasamento" accept="image/*">
+          <input type="file" id="certidaoCasamento" name="certidaoCasamento" accept=".jpg, .jpeg, .pdf">
         </div>
+
         <div class="form-group">
-          <label for="comprovantesRenda">3 últimos comprovantes de rendimento (que somados sejam superior a 03 vezes o valor do aluguel):</label>
-          <input type="file" id="comprovantesRenda" name="comprovantesRenda" accept="image/*" multiple>
+          <label for="comprovantesRenda">3 últimos comprovantes de rendimento:</label>
+          <input type="file" id="comprovantesRenda" name="comprovantesRenda" accept=".jpg, .jpeg, .pdf" multiple>
         </div>
+
         <div class="form-group">
           <label for="comprovanteResidencia">Comprovante de residência (Luz, Água ou telefone):</label>
-          <input type="file" id="comprovanteResidencia" name="comprovanteResidencia" accept="image/*">
+          <input type="file" id="comprovanteResidencia" name="comprovanteResidencia" accept=".jpg, .jpeg, .pdf">
         </div>
+
         <div class="form-group">
           <label for="declaracaoIR">Declaração de Imposto de Renda completa:</label>
-          <input type="file" id="declaracaoIR" name="declaracaoIR" accept="image/*">
+          <input type="file" id="declaracaoIR" name="declaracaoIR" accept=".jpg, .jpeg, .pdf">
         </div>
+
         <div class="form-group">
-          <label for="recibosAluguel">Os três últimos recibos de pagamento, se estiver pagando aluguel:</label>
-          <input type="file" id="recibosAluguel" name="recibosAluguel" accept="image/*" multiple>
+          <label for="recibosAluguel">Os três últimos recibos de pagamento de aluguel:</label>
+          <input type="file" id="recibosAluguel" name="recibosAluguel" accept=".jpg, .jpeg, .pdf" multiple>
         </div>
+
         <div class="form-group">
           <label for="fichaCadastral">Ficha cadastral preenchida e assinada:</label>
-          <input type="file" id="fichaCadastral" name="fichaCadastral" accept="image/*">
+          <input type="file" id="fichaCadastral" name="fichaCadastral" accept=".jpg, .jpeg, .pdf">
         </div>
-      </section>
 
+      </section>
       <button type="submit" class="submit-button">Enviar Documentos</button>
     </form>
   </main>
 
   <footer>
-    <p>© 🔒 Sua segurança é nossa prioridade. Este site é protegido com tecnologia avançada para garantir a privacidade e integridade dos seus dados. 🔒</p>
+    <p>🔒 Seu envio é seguro e protegido.</p>
   </footer>
 </body>
 </html>
